@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/header/Header";
+import The404Component from "./pages/404/The404Component";
+import About from "./pages/About";
+import Movie from "./pages/Movie";
+import Movies from "./pages/Movies";
+import { ThemeProvider } from "styled-components";
+import { useState } from "react";
+import { lightTheme, darkTheme } from "./theme/theme";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <BrowserRouter>
+        <Header themeToggler={themeToggler} theme={theme} />
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:id" element={<Movie />} />
+          <Route path="*" element={<The404Component />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
