@@ -32,6 +32,7 @@ const BoxesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  height: 90vh;
 
   flex-direction: column;
 `;

@@ -6,7 +6,6 @@ function Logo() {
 }
 
 const LogoText = styled.p`
-  @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap");
   font-family: "Cinzel", serif;
   font-weight: 600;
   font-size: 21px;

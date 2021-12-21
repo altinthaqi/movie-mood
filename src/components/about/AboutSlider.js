@@ -5,6 +5,7 @@ import slider1 from "../../assets/img/slider1.jpg";
 import slider2 from "../../assets/img/slider2.jpg";
 import { FcNext, FcPrevious } from "react-icons/fc";
 import { slides } from "../../data/data";
+import media from "../../assets/media/media";
 
 function AboutSlider() {
   const [slide, setSlide] = useState(0);
@@ -56,7 +57,7 @@ const SliderContainer = styled.div`
     bottom: 50%;
     background-color: ${(props) => props.theme.body};
     color: ${(props) => props.theme.text};
-    padding: 13px;
+    padding: 10px;
     font-size: 21px;
     border: 1px solid ${(props) => props.theme.text};
   }
@@ -67,21 +68,54 @@ const SliderContainer = styled.div`
   .next {
     right: 10px;
   }
+
+  ${media.tablet} {
+    img {
+      height: 100%;
+    }
+  }
+  ${media.desktop} {
+    height: 85vh;
+    img {
+      height: 100%;
+    }
+  }
 `;
 
 const SliderBox = styled.div`
-  position: absolute;
-  bottom: 3%;
-  margin: 0px 20px 10px 20px;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
-  padding: 10px 0px;
   border: 1px solid ${(props) => props.theme.text};
+  position: absolute;
+  bottom: 3%;
+  width: auto;
 
-  h2,
+  margin: 0px 20px 10px 20px;
+  padding: 10px 0px;
+
+  h2 {
+    text-align: center;
+    padding-top: 10px;
+  }
   p {
     text-align: center;
-    margin: 15px;
+    max-width: 90%;
+    margin: auto;
+    padding: 15px 0px;
+  }
+
+  ${media.tablet} {
+    right: 50%;
+    width: 100%;
+    max-width: 500px;
+    transform: translate(50%, 0%);
+  }
+
+  ${media.desktop} {
+    right: 50%;
+    width: 100%;
+    max-width: 675px;
+    transform: translate(50%, 0%);
   }
 `;
 export default AboutSlider;

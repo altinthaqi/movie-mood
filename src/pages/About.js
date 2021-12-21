@@ -5,6 +5,7 @@ import { boxes } from "../data/data";
 import AboutBoxes from "../components/about/AboutBoxes";
 import AboutSeries from "../components/about/AboutSeries";
 import AboutSlider from "../components/about/AboutSlider";
+import media from "../assets/media/media";
 
 function About() {
   const [boxData, setBoxData] = useState(boxes);
@@ -51,8 +52,15 @@ const Intro = styled.div`
     padding: 0px 50px;
     text-align: center;
     font-weight: 500;
-    max-width: 960px;
+    max-width: 860px;
     color: ${(props) => props.theme.text};
+
+    ${media.tablet} {
+      font-size: 18px;
+    }
+    ${media.desktop} {
+      font-size: 21px;
+    }
   }
 `;
 
@@ -63,6 +71,14 @@ const Title = styled.h2`
   padding: 0 52px;
   max-width: 960px;
   font-weight: 700;
+  margin: auto;
+
+  ${media.tablet} {
+    font-size: 41px;
+  }
+  ${media.desktop} {
+    font-size: 61px;
+  }
 `;
 
 const Banner = styled.div`
