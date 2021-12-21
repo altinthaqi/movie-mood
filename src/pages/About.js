@@ -1,14 +1,25 @@
-import React from "react";
-// import BannerImg from "../assets/img/banner.jpg";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+import { boxes } from "../data/data";
+import AboutBoxes from "../components/about/AboutBoxes";
+import AboutSeries from "../components/about/AboutSeries";
+import AboutSlider from "../components/about/AboutSlider";
+
 function About() {
+  const [boxData, setBoxData] = useState(boxes);
+
+  const onDelete = (query) => {
+    const filteredBoxes = boxData.filter((item) => item.id !== query);
+    setBoxData(filteredBoxes);
+  };
+
   return (
     <>
       <Banner>
         <Title>Cinema is a mirror by which we often see ourselves.</Title>
       </Banner>
-      <IntroSection>
+      <Intro>
         <p>
           At Movie Mood, we want to entertain the world. Whatever your taste,
           and no matter where you live, we give you access to best-in-class TV
@@ -19,12 +30,15 @@ function About() {
           the world's biggest fans of entertainment, and we're always looking to
           help you find your next favorite story.
         </p>
-      </IntroSection>
+      </Intro>
+      <AboutSeries />
+      <AboutBoxes boxData={boxData} onDelete={onDelete} />
+      <AboutSlider />
     </>
   );
 }
 
-const IntroSection = styled.div`
+const Intro = styled.div`
   transition: all 0.5s;
   height: 100vh;
   display: flex;
@@ -63,7 +77,7 @@ const Banner = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

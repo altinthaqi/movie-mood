@@ -3,12 +3,13 @@ import { HeaderStyled } from "./headerStyled";
 
 import { MdLightMode } from "react-icons/md";
 import { BsFillMoonFill } from "react-icons/bs";
+import Logo from "../Logo.js";
 
 function Header({ themeToggler, theme }) {
   return (
     <HeaderStyled>
       <nav>
-        <p id="logo">Movie Mood</p>
+        <Logo />
         <ul>
           <li>
             {theme === "light" ? (

@@ -7,6 +7,7 @@ import Movies from "./pages/Movies";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { lightTheme, darkTheme } from "./theme/theme";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -24,6 +25,7 @@ function App() {
           <Route path="/movies/:id" element={<Movie />} />
           <Route path="*" element={<The404Component />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

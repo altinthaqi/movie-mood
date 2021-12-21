@@ -2,13 +2,14 @@ import styled from "styled-components";
 import media from "../../assets/media/media";
 
 export const HeaderStyled = styled.header`
-  @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap");
   width: 100%;
   height: 10vh;
+
   background-color: ${(props) => props.theme.body};
   transition: all 0.5s;
   position: sticky;
   top: 0;
+  z-index: 10;
 
   nav {
     height: 100%;
@@ -42,12 +43,6 @@ export const HeaderStyled = styled.header`
     margin: 0px 20px;
     color: ${(props) => props.theme.text};
     cursor: pointer;
-  }
-  #logo {
-    font-family: "Cinzel", serif;
-    font-weight: 600;
-    font-size: 21px;
-    color: ${(props) => props.theme.text};
   }
 
   ${media.tablet} {
