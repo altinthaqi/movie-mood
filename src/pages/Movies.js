@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { api } from "../apis/tmdb";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 function Movies() {
   const [data, setData] = useState([]);
@@ -74,6 +75,22 @@ function Movies() {
     setActiveBtn("watchLater");
   };
 
+  const deleteFavoritesHandler = (id) => {
+    const filteredMovies = watchLater.filter((m) => m.id !== id);
+    setWatchLater(filteredMovies);
+  };
+
+  const wlStar = (id, obj) => {
+    const filteredList = watchLater.filter((m) => m.id === id);
+    if (filteredList.length !== 0) {
+      return <AiFillStar />;
+    } else {
+      return (
+        <AiOutlineStar onClick={() => setWatchLater([obj, ...watchLater])} />
+      );
+    }
+  };
+
   return (
     <>
       <Container>
@@ -116,30 +133,51 @@ function Movies() {
             Watch Later
           </button>
         </Options>
-        <MovieContainer>
-          {data.map((m) => (
-            <Movie key={m.id}>
-              <img src={`${api.original_img_url}${m.poster_path}`} alt="" />
-              <p className="movie-title">{m.original_title}</p>
-            </Movie>
-          ))}
-        </MovieContainer>
+        {activeBtn !== "watchLater" && (
+          <>
+            <MovieContainer>
+              {data.map((m) => (
+                <Movie key={m.id}>
+                  <img src={`${api.original_img_url}${m.poster_path}`} alt="" />
+                  <p className="movie-title">{m.original_title}</p>
+                  {wlStar(m.id, m)}
+                </Movie>
+              ))}
+            </MovieContainer>
 
-        <Pagination>
-          <FaArrowLeft className="arrow" onClick={() => changePagination(-1)} />
-          {paginationPage > 1 && (
-            <p onClick={() => changePagination(-1)}>{paginationPage - 1}</p>
-          )}
-          <p className="first" onClick={() => changePagination(-1)}>
-            {paginationPage}
-          </p>
+            <Pagination>
+              <FaArrowLeft
+                className="arrow"
+                onClick={() => changePagination(-1)}
+              />
+              {paginationPage > 1 && (
+                <p onClick={() => changePagination(-1)}>{paginationPage - 1}</p>
+              )}
+              <p className="first" onClick={() => changePagination(-1)}>
+                {paginationPage}
+              </p>
 
-          <p onClick={() => changePagination(+1)}>{paginationPage + 1}</p>
-          <FaArrowRight
-            className="arrow"
-            onClick={() => changePagination(+1)}
-          />
-        </Pagination>
+              <p onClick={() => changePagination(+1)}>{paginationPage + 1}</p>
+              <FaArrowRight
+                className="arrow"
+                onClick={() => changePagination(+1)}
+              />
+            </Pagination>
+          </>
+        )}
+        {activeBtn === "watchLater" && (
+          <>
+            <MovieContainer>
+              {watchLater.map((m) => (
+                <Movie key={m.id}>
+                  <img src={`${api.original_img_url}${m.poster_path}`} alt="" />
+                  <p className="movie-title">{m.original_title}</p>
+                  <AiFillStar onClick={() => deleteFavoritesHandler(m.id)} />
+                </Movie>
+              ))}
+            </MovieContainer>
+          </>
+        )}
       </Container>
     </>
   );
@@ -264,7 +302,7 @@ const Movie = styled.div`
   }
 
   p {
-    height: 20px;
+    height: 50px;
     font-weight: 700;
     font-size: 18px;
     width: 100%;
@@ -277,6 +315,7 @@ const MovieContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
   align-items: center;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
