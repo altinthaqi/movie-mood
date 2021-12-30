@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { BoxesContainer } from "./aboutBoxesStyled";
 import AboutBox from "./AboutBox";
 
 function AboutBoxes({ boxData, onDelete }) {
@@ -26,15 +26,5 @@ function AboutBoxes({ boxData, onDelete }) {
     </BoxesContainer>
   );
 }
-
-const BoxesContainer = styled.div`
-  background-color: ${(props) => props.theme.body};
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 90vh;
-
-  flex-direction: column;
-`;
 
 export default AboutBoxes;

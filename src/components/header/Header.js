@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Nav, Hamburger, Menu, MenuLink } from "./headerStyled";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { MdLightMode } from "react-icons/md";
 import { BsFillMoonFill } from "react-icons/bs";
@@ -10,7 +10,10 @@ function Header({ themeToggler, theme }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
-      <Logo />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
+
       {theme === "light" ? (
         <BsFillMoonFill className="themeIcon" onClick={() => themeToggler()} />
       ) : (
@@ -22,13 +25,13 @@ function Header({ themeToggler, theme }) {
         <span></span>
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <Link onClick={() => setIsOpen(!isOpen)} to="/movies">
-          <MenuLink href="#">Movies</MenuLink>
-        </Link>
+        <NavLink onClick={() => setIsOpen(!isOpen)} to="/movies">
+          <MenuLink>Movies</MenuLink>
+        </NavLink>
 
-        <MenuLink href="#">Suggest</MenuLink>
-        <MenuLink href="#">Suggested</MenuLink>
-        <MenuLink href="#">Login</MenuLink>
+        <MenuLink>Suggest</MenuLink>
+        <MenuLink>Suggested</MenuLink>
+        <MenuLink>Login</MenuLink>
       </Menu>
     </Nav>
   );

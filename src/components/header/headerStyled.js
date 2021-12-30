@@ -10,6 +10,7 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   background-color: ${(props) => props.theme.body};
   box-shadow: 0 3px 5px rgba(36, 36, 36, 0.1);
+
   .themeIcon {
     font-size: 18px;
     margin: 0px 20px;
@@ -41,17 +42,18 @@ export const Menu = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 10px;
 
   @media (max-width: 768px) {
     overflow: hidden;
-    margin-top: 20px;
+
     flex-direction: column;
     width: 100%;
     max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
     transition: max-height 0.3s ease-in;
   }
 `;
-export const MenuLink = styled.a`
+export const MenuLink = styled.p`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
