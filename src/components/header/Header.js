@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Nav, Hamburger, Menu, MenuLink } from "./headerStyled";
+import { Link } from "react-router-dom";
 
 import { MdLightMode } from "react-icons/md";
 import { BsFillMoonFill } from "react-icons/bs";
@@ -21,7 +22,10 @@ function Header({ themeToggler, theme }) {
         <span></span>
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink href="#">Watch</MenuLink>
+        <Link onClick={() => setIsOpen(!isOpen)} to="/movies">
+          <MenuLink href="#">Movies</MenuLink>
+        </Link>
+
         <MenuLink href="#">Suggest</MenuLink>
         <MenuLink href="#">Suggested</MenuLink>
         <MenuLink href="#">Login</MenuLink>
