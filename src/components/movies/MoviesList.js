@@ -1,16 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { api } from "../../apis/tmdb";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MovieContainer, Movie, Pagination } from "./moviesListStyled";
 
-function MoviesList({ data, wlStar, changePagination, paginationPage }) {
+function MoviesList({ movies, wlStar, changePagination, paginationPage }) {
   return (
     <>
       <MovieContainer>
-        {data.map((m) => (
+        {movies.map((m) => (
           <Movie key={m.id}>
-            <img src={`${api.original_img_url}${m.poster_path}`} alt="" />
-            <p className="movie-title">{m.original_title}</p>
+            <NavLink to={`/movies/${m.id}`}>
+              <img src={`${api.original_img_url}${m.poster_path}`} alt="" />
+              <p className="movie-title">{m.original_title}</p>
+            </NavLink>
             {wlStar(m)}
           </Movie>
         ))}

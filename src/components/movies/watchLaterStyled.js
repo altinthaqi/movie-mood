@@ -22,6 +22,7 @@ export const Movie = styled.div`
     font-size: 18px;
     width: 100%;
     margin: 10px 0px;
+    color: ${(props) => props.theme.text};
   }
 `;
 

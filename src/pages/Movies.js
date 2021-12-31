@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { api } from "../apis/tmdb";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
 //Components
 import Intro from "../components/movies/Intro";
@@ -12,7 +11,7 @@ import MoviesList from "../components/movies/MoviesList";
 
 function Movies() {
   //States
-  const [data, setData] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState("");
   const [activeBtn, setActiveBtn] = useState("popular");
   const [paginationPage, setPaginationPage] = useState(1);
@@ -22,7 +21,7 @@ function Movies() {
   const makeApiCall = (params) => {
     axios
       .get(params)
-      .then((data) => setData(data.data.results))
+      .then((data) => setMovies(data.data.results))
       .catch((err) => console.log(err));
   };
 
@@ -115,7 +114,7 @@ function Movies() {
 
       {activeBtn !== "watchLater" && (
         <MoviesList
-          data={data}
+          movies={movies}
           wlStar={wlStar}
           changePagination={changePagination}
           paginationPage={paginationPage}
