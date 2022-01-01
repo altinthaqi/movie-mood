@@ -6,6 +6,10 @@ import Header from "./components/header/Header";
 import About from "./pages/About";
 import Movie from "./pages/Movie";
 import Movies from "./pages/Movies";
+import Suggestion from "./pages/Suggestion";
+import Suggest from "./pages/Suggest";
+import Suggested from "./pages/Suggested";
+
 import Footer from "./components/footer/Footer";
 import The404Component from "./pages/404/The404Component";
 
@@ -22,6 +26,8 @@ function App() {
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/movies" element={<Movies />} />
+          <Route path="/suggest" element={<Suggest />} />
+          <Route path="/suggested" element={<Suggested />} />
           <Route path="/movies/:id" element={<Movie />} />
           <Route path="*" element={<The404Component />} />
         </Routes>
