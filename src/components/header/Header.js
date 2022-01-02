@@ -25,12 +25,20 @@ function Header({ themeToggler, theme }) {
         <span></span>
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <NavLink onClick={() => setIsOpen(!isOpen)} to="/movies">
+        <NavLink
+          onClick={() => (isOpen === true ? setIsOpen(!isOpen) : "")}
+          to="/movies"
+        >
           <MenuLink>Movies</MenuLink>
         </NavLink>
 
-        <MenuLink>Suggest</MenuLink>
-        <MenuLink>Suggested</MenuLink>
+        <NavLink
+          onClick={() => (isOpen === true ? setIsOpen(!isOpen) : "")}
+          to="/suggestions"
+        >
+          <MenuLink>Suggestions</MenuLink>
+        </NavLink>
+
         <MenuLink>Login</MenuLink>
       </Menu>
     </Nav>

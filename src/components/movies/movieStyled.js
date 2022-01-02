@@ -47,6 +47,7 @@ export const Video = styled.div`
   margin: 20px;
   iframe {
     width: 100%;
+    height: 200px;
   }
 
   ${media.tablet} {
