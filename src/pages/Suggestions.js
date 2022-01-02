@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Suggest from "../components/suggestions/Suggest";
 import Suggested from "../components/suggestions/Suggested";
+import { suggested } from "../data/data";
 
 function Suggestion() {
   const [currentChoice, setCurrentChoice] = useState();
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState(suggested);
 
   const submitHandler = (query) => {
     setSuggestions([query, ...suggestions]);
@@ -44,12 +45,12 @@ function Suggestion() {
           </>
         )}
 
-        <Genres>
+        <Choice>
           <button onClick={() => setCurrentChoice("suggest")}>Suggest</button>
           <button onClick={() => setCurrentChoice("suggested")}>
             Suggested
           </button>
-        </Genres>
+        </Choice>
       </Banner>
 
       {currentChoice === "suggest" && (
@@ -62,7 +63,7 @@ function Suggestion() {
   );
 }
 
-export const Genres = styled.div`
+export const Choice = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,8 +86,6 @@ export const Genres = styled.div`
     }
   }
 `;
-
-const Choice = styled.div``;
 
 const Banner = styled.div`
   height: 60vh;

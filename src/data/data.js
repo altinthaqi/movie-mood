@@ -33,3 +33,22 @@ export const slides = [
     text: "Amidst the escalating unrest between the advanced, utopian city of Piltover and the squalid, repressed undercity of Zaun, sisters Vi and Jinx find themselves on opposing sides of a war over twisted ideologies and arcane technology.",
   },
 ];
+
+export const suggested = [
+  {
+    id: 1,
+    img: "https://image.tmdb.org/t/p/original/lAXONuqg41NwUMuzMiFvicDET9Y.jpg",
+    title: "Red Notice",
+    description:
+      "An Interpol-issued Red Notice is a global alert to hunt and capture the world's most wanted. But when a daring heist brings together the FBI's top profiler and two rival criminals, there's no telling what will happen.",
+    name: "anonimous",
+  },
+  {
+    id: 2,
+    img: "https://image.tmdb.org/t/p/original/bH9pYRHBfdmHrtE0iYcsR2mBfQl.jpg",
+    title: "Mr. Robot: Behind the Mask",
+    description:
+      "Elliot, a brilliant but highly unstable young cyber-security engineer and vigilante hacker, becomes a key figure in a complex game of global dominance when he and his shadowy allies try to take down the corrupt corporation he works for.",
+    name: "altin",
+  },
+];

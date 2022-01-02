@@ -5,17 +5,30 @@ function Suggest({ submitHandler }) {
   const formHandler = (e) => {
     e.preventDefault();
 
-    const formValues = {
-      name: e.target.yourname.value,
-      title: e.target.movietitle.value,
-      image: e.target.movieimage.value,
-      description: e.target.moviedescription.value,
-    };
-    submitHandler(formValues);
+    if (
+      e.target.movieimage.value === "" ||
+      e.target.movietitle.value === "" ||
+      e.target.moviedescription.value === "" ||
+      e.target.yourname.value === ""
+    ) {
+      alert("Fill ALL inputs please!");
+    } else {
+      const formValues = {
+        id: Math.random() * 1000,
+        img: e.target.movieimage.value,
+        title: e.target.movietitle.value,
+        description: e.target.moviedescription.value,
+        name: e.target.yourname.value,
+      };
+      submitHandler(formValues);
+
+      e.target.reset();
+    }
   };
 
   return (
     <Form onSubmit={formHandler}>
+      <h2>Suggest Movie:</h2>
       <input type="text" name="yourname" placeholder="Name..." />
       <input type="text" name="movietitle" placeholder="Title..." />
       <input type="text" name="movieimage" placeholder="Image URL..." />
@@ -39,6 +52,13 @@ const Form = styled.form`
   max-width: 400px;
   width: 80%;
   background-color: ${(props) => props.theme.body};
+
+  h2 {
+    color: ${(props) => props.theme.text};
+    font-family: "Cinzel", serif;
+    margin: 20px 0px;
+    align-self: center;
+  }
 
   input,
   textarea {
