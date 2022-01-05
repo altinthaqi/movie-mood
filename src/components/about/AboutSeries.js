@@ -10,7 +10,7 @@ function AboutSeries() {
     <SeriesContainer>
       <SeriesIntro>
         <span>included in all plans</span>
-        <h2>All The Movices You Love</h2>
+        <h2>All The Movies You Love</h2>
         <p>
           Stream full seasons of exclusive series, current-season episodes, hit
           movies, kids shows, and more.

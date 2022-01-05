@@ -41,7 +41,7 @@ export const suggested = [
     title: "Red Notice",
     description:
       "An Interpol-issued Red Notice is a global alert to hunt and capture the world's most wanted. But when a daring heist brings together the FBI's top profiler and two rival criminals, there's no telling what will happen.",
-    name: "anonimous",
+    name: "user112",
   },
   {
     id: 2,
@@ -49,6 +49,6 @@ export const suggested = [
     title: "Mr. Robot: Behind the Mask",
     description:
       "Elliot, a brilliant but highly unstable young cyber-security engineer and vigilante hacker, becomes a key figure in a complex game of global dominance when he and his shadowy allies try to take down the corrupt corporation he works for.",
-    name: "altin",
+    name: "altinThaçi",
   },
 ];
