@@ -22,6 +22,8 @@ function App() {
         <Header themeToggler={themeToggler} theme={theme} />
         <Routes>
           <Route path="/" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/movie-mood" element={<About />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:id" element={<Movie />} />
           <Route path="/suggestions" element={<Suggestions />} />
