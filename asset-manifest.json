@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/movie-mood/static/css/main.9bd2b6cd.css",
+    "main.js": "/movie-mood/static/js/main.59f10967.js",
+    "static/media/banner-dark.jpg": "/movie-mood/static/media/banner-dark.59d07848deb802496a58.jpg",
+    "static/media/serie3.jpg": "/movie-mood/static/media/serie3.7250a4cb9b5b54544eb6.jpg",
+    "static/media/banner-light.jpg": "/movie-mood/static/media/banner-light.a7949bf5bac27c7d9a4d.jpg",
+    "static/media/error404.png": "/movie-mood/static/media/error404.d35ddf8f5d2a064e2e48.png",
+    "static/media/slider0.jpg": "/movie-mood/static/media/slider0.009ac6c3091785392541.jpg",
+    "static/media/serie1.jpg": "/movie-mood/static/media/serie1.8408422eeb4060803aa5.jpg",
+    "static/media/serie2.jpg": "/movie-mood/static/media/serie2.52c1ab6ff2e7f60897d5.jpg",
+    "static/media/slider2.jpg": "/movie-mood/static/media/slider2.06c2d35aae1bd14b1413.jpg",
+    "static/media/serie4.jpg": "/movie-mood/static/media/serie4.41b2627982462a959b59.jpg",
+    "index.html": "/movie-mood/index.html",
+    "main.9bd2b6cd.css.map": "/movie-mood/static/css/main.9bd2b6cd.css.map",
+    "main.59f10967.js.map": "/movie-mood/static/js/main.59f10967.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9bd2b6cd.css",
+    "static/js/main.59f10967.js"
+  ]
+}
